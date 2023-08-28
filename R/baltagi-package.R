@@ -92,7 +92,7 @@
 #'  \item{water}{Water and sewer facilities}
 #'  \item{util}{Other public buildings and structures}
 #'  \item{priv_cap}{Private capital stock}
-#'  \item{gsp}{Gross state products}
+#'  \item{gsp}{Gross state product}
 #'  \item{emp}{Labor input measured by the employment in non-agricultural payrolls}
 #'  \item{unemp}{State unemployment rate}
 #' }

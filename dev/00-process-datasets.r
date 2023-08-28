@@ -122,7 +122,7 @@ produc <- produc %>%
   tibble(r = .) %>%
   separate(
     r,
-    into = c("state", "st_abb", "year", "pub_cap", "hwy", "water", "util", "priv", "gsp", "emp", "unemp"),
+    into = c("state", "st_abb", "year", "pub_cap", "hwy", "water", "util", "priv_cap", "gsp", "emp", "unemp"),
     sep = "\\s+"
   ) %>%
   mutate(
@@ -133,7 +133,7 @@ produc <- produc %>%
     hwy = as.integer(hwy),
     water = as.integer(water),
     util = as.integer(util),
-    priv = as.integer(priv),
+    priv_cap = as.integer(priv_cap),
     gsp = as.integer(gsp),
     emp = as.integer(emp),
     unemp = as.numeric(unemp)

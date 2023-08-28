@@ -1,0 +1,66 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# baltagi
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## About
+
+'Econometric Analysis of Panel Data' (ISBN 978-3-030-53952-8)
+provides up-to-date coverage of basic panel data techniques, illustrated
+with real economic applications and datasets. However, importing the
+original data from the book into R is not straightforward because
+some of the datasets are available in Microsoft Word format. I provide the
+datasets in tidy format, expecting that this will allow students to focus on
+the econometric techniques rather than on data wrangling.
+
+## Installation
+
+You can install the development version of baltagi like so:
+
+``` r
+remotes::install_github("pachadotdev/baltagi")
+```
+
+## Example
+
+Baltagi, Song and Jung (2001) investigated the productivity of public capital in
+each US state's private output, which is discussed in section 9.6.1 of the book
+(Empirical Example: Nested States Public Capital Productivity).
+
+The original dataset is in Microsoft Word format (DOCX). To read it, you would
+need to copy it in Notepad, save as CSV , and then import it into R to find that
+there are data wrangling steps involved to make it usable. Alternatively, you
+can read the DOCX file directly in R with the `readtext` package and then
+proceed to the data wrangling.
+
+`baltagi` saves all those steps and you can jump directly to the econometric
+analysis.
+
+```{r example}
+library(baltagi)
+library(plm)
+
+fit <- plm(
+  log(gsp) ~ log(priv_cap) + log(hwy) + log(water) + log(util) + log(emp) +
+    unemp,
+  data = produc,
+  index = c("st_abb", "year")
+)
+
+summary(fit)
+```
